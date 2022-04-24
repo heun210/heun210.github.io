@@ -180,6 +180,7 @@ function paintTitle(userTitleWrite) {
   titleBtn.innerText = ` TITLE : ${userTitleWrite}`;
   titleBtn.style.display = "block";
   titleInput.style.display = "none";
+  delBtn.style.display = "block";
 }
 
 //* ELEMENTS : SAVE TITLE
@@ -195,4 +196,16 @@ if (savedUserWriteTitle === null) {
   /* titleBtn.innerText = userTitleWrite;
   titleBtn.style.display = "block"; */
   paintTitle(savedUserWriteTitle);
+}
+
+//@ Delete Title
+//* FUNCTION : DELETE TITLE
+function onTitleDel() {
+  localStorage.removeItem(CANVASTITLE);
+  window.location.reload(true);
+}
+
+//* EVENT : DELETE TITLE
+if (delForm) {
+  delForm.addEventListener("click", onTitleDel);
 }

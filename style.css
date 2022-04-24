@@ -268,6 +268,31 @@ main {
   margin-bottom: 10px;
 }
 
+/* //@ Title Delete */
+
+.form__container {
+  display: flex;
+  line-height: 15px;
+  /*  border: 1px solid red; */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title__delbtn {
+  all: unset;
+  /* box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.18); */
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
+  padding: 1px;
+  display: none;
+  line-height: 15px;
+  position: relative;
+  bottom: 5px;
+  left: -30px;
+}
+
 /* //@jump-game */
 .bookmark-container {
   display: flex;
