@@ -1,0 +1,522 @@
+@import "/reset.css";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+
+.login-display {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.login-area {
+  height: 200px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.55);
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 50px 35px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-area * {
+  color: #ffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+
+/*.login-area::before {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  filter: blur(2px);
+}*/
+
+#login-form input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.52);
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.login-area button,
+.logout-area button {
+  width: 100%;
+  color: white;
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.52);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  resize: both;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-container {
+  height: 830px;
+  width: 1230px;
+  background-color: rgba(255, 255, 255, 0.513);
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.12);
+  position: absolute;
+}
+
+/* //@ paintjs */
+.paint-container {
+  display: flex;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.12);
+  right: 30px;
+  bottom: 30px;
+  box-sizing: content-box;
+}
+.canvas__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 467px;
+  height: 500px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-sizing: content-box;
+  border-radius: 40px;
+}
+/* //* canvas */
+
+.canvas {
+  width: 400px;
+  height: 450px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* //* canvas(controls> check,range,button,color) */
+.controls {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* //* button */
+.controls .controls__btns {
+  margin-bottom: 15px;
+}
+
+.controls__btns button {
+  all: unset;
+  cursor: pointer;
+  background-color: white;
+  padding: 3.8px 0px;
+  width: 80px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 11.5px;
+}
+
+.controls__btns button:active,
+.controls__colors .controls__color:active {
+  transform: scale(0.98);
+}
+
+/* //* color */
+.controls .controls__colors {
+  display: flex;
+}
+
+.controls__colors .controls__color {
+  width: 30px;
+  height: 30px;
+  border-radius: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* //* controls__range */
+.controls .controls__range {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.controls__range .check {
+  width: 30px;
+  height: 30px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-right: 10px;
+}
+
+/* //@ canvas title */
+
+.title__input {
+  all: unset;
+  background: rgba(255, 255, 255, 0.35);
+  padding: 3.8px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  width: 200px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.title__btn {
+  all: unset;
+  background: white;
+  padding: 3.8px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.18);
+  width: 200px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: none;
+  margin-bottom: 10px;
+}
+
+/* //@jump-game */
+.bookmark-container {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  justify-content: center;
+  width: 467px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#bookmark {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 430px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  position: absolute;
+  top: 15px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: translateX(-50);
+}
+.btn ul {
+  height: 200px;
+  width: 430px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  position: relative;
+}
+
+.btn ul a {
+  margin-left: 20px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.google a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url(/src/g-logo.png);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.youtube a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url(/src/youtube_social_square_red.png);
+  background-size: cover;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nomad a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url(/src/nomad.jpg);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.insta a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url(/src/insta.png);
+  background-size: contain;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* //@todo-list */
+::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  padding-left: 10px;
+}
+.todo-container {
+  height: 540px;
+  width: 673px;
+  display: flex;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#todo-list {
+  overflow: auto;
+  width: 600px;
+  height: 450px;
+  padding-top: 30px;
+  padding-left: 15px;
+  position: relative;
+  top: 60px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.23);
+  border-radius: 25px;
+}
+
+#todo-form input {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 25px;
+  background: transparent;
+  width: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  left: 0;
+  height: 30px;
+}
+
+#todo-form:hover {
+  transform: scale(1.05);
+}
+
+#todo-form {
+  position: absolute;
+  top: 15px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.fa-circle-check {
+  font-size: 18px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+#todo-list button {
+  position: absolute;
+  right: 30px;
+  font-size: 18px;
+}
+
+.todo-list-text {
+  font-size: 18px;
+}
+
+.user-container {
+  height: 200px;
+  width: 673px;
+  display: flex;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.user {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding-top: 15px;
+  justify-content: center;
+}
+
+.user-greeting {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.logout-area {
+  margin-left: 10px;
+}
+.logout-area button img {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  display: flex;
+  position: relative;
+  top: 1px;
+  border: transparent;
+}
+
+.time-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  top: 10px;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+.weather-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 20px;
+}
+
+.weather-container * {
+  margin: 10px;
+}
+
+.weather-container h1 {
+  font-size: 3em;
+}
+
+.weatherinfo {
+  font-size: 1.5em;
+}

@@ -1,1 +1,171 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOMENTUM</title>
+    <script
+      src="https://kit.fontawesome.com/0a05ff2253.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 로그인화면 -->
+    <div class="login-display">
+      <div class="login-area">
+        <form id="login-form">
+          <input
+            type="text"
+            required
+            maxlength="20"
+            id="id"
+            placeholder="USER NAME"
+            autocomplete="off"
+          />
+          <button type="submit">LOGIN</button>
+        </form>
+      </div>
+    </div>
+    <!-- 메인화면 -->
+    <main id="main" class="hidden">
+      <div class="main-wrap">
+        <div class="main-container">
+          <div class="todo-container">
+            <form id="todo-form">
+              <input type="text" placeholder="+ To Do" />
+            </form>
+            <ul id="todo-list"></ul>
+          </div>
+          <div class="paint-container">
+            <div id="jsCanvasContainer" class="canvas__container">
+              <div class="form__container">
+                <!-- canvas Title -->
+                <form id="titleForm">
+                  <input
+                    type="text"
+                    type="submit"
+                    value=""
+                    class="title__input"
+                    placeholder="Enter your title."
+                  />
+                  <button type="button" class="title__btn"></button>
+                </form>
+              </div>
+
+              <canvas id="jsCanvas" class="canvas"></canvas>
+              <div class="controls">
+                <div class="controls__range">
+                  <div class="check" id="jsCheck"></div>
+                  <input
+                    type="range"
+                    id="jsRange"
+                    min="0.1"
+                    max="5.0"
+                    value="2.5"
+                    step="0.1"
+                  />
+                </div>
+                <!-- <div class="controls__btns">
+                    <button id="jsMode">Fill</button>
+                    <button id="jsSave">
+                      <input type="button" onclick="document.execCommand('SaveAs')" /> Save
+                    </button>
+                  </div> -->
+
+                <div class="controls__btns">
+                  <button id="jsMode">Fill</button>
+                  <button id="jsSave">Save</button>
+                </div>
+                <div class="controls__colors" id="jsColors">
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #2c2c2c"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: white"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #ff3b30"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #ff9500"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #ffcc00"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #4cd963"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #5ac8fa"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #0579ff"
+                  ></div>
+                  <div
+                    class="controls__color jsColor"
+                    style="background-color: #5856d6"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bookmark-container">
+            <div id="bookmark">
+              <div class="title">BookMark</div>
+              <div class="btn">
+                <ul class="menu">
+                    <li class="google"><a href="https://www.google.com/" >
+                    </a></li>
+                    <li class="youtube"><a href="https://www.youtube.com/" ></a></li>
+                    <li class="nomad"><a href="https://nomadcoders.co/" ></a></li>
+                    <li class="insta"><a href="https://www.instagram.com/_h__0210/" ></a></li>
+                </ul>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          <div class="user-container">
+            <div class="user">
+              <div class="user-greeting"></div>
+              <div class="logout-area">
+                <form id="logout-form" class="hidden">
+                  <button>
+                    <img src="src/logout.svg" />
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="time-container">
+              <h1 class="time"></h1>
+            </div>
+            <div class="weather-container">
+              <span class="weatherInfo"></span>
+              <span class="weatherIcon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- nav -->
+    <script src="main.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/time.js"></script>
+    <script src="/js/weathe.js"></script>
+    <script src="/js/paint.js"></script>
+    <script src="/js/todo.js"></script>
+    <script src="/js/jump.js"></script>
+    <script src="/js/background.js"></script>
+  </body>
+</html>
